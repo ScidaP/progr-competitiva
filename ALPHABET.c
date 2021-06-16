@@ -3,27 +3,31 @@
 #include <string.h>
 
 int main() {
-    char letras[30];
-    scanf("%s", &letras);
-    char palabra[50];
-    int cantPalabras, k = 0;
-    scanf("%d", &cantPalabras);
-    for (int i = 0; i < cantPalabras; i++){
-        scanf("%s", &palabra);
-        for (int j = 0; j < strlen(letras); j++) {
-            for (int x = 0; x < strlen(palabra); x++) {
-                if (letras[j] == palabra[x]) {
-                    k++;
+    char string[26];
+    int cantPalabras, i;
+    scanf("%s",string);
+    scanf("%d",&cantPalabras);
+    for(i=0;i<cantPalabras;i++)
+    {
+        char palabra[12];
+        int j,k,l,cont=0;
+        scanf("%s",palabra);
+        l=strlen(palabra);
+        for(j=0;palabra[j]!='\0';j++)
+        {
+            for(k=0;string[k]!='\0';k++)
+            {
+                if(palabra[j]==string[k])
+                {
+                    cont++;
+                    break;
                 }
             }
         }
-        if (k == strlen(palabra)) {
-            printf("YES\n");
-        } else {
-            printf("NO\n");
-        }
-        strcpy(palabra, "");
-        k = 0;
+        if(cont==l)
+        printf("Yes\n");
+        else
+        printf("No\n");
     }
     getchar();
     getchar();
