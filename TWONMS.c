@@ -1,22 +1,23 @@
 #include <stdio.h>
 
+int dividir(int a, int b) {
+    if (a >= b) {
+        return a/b;
+    } else {
+        return b/a;
+    }
+}
+
 int main() {
     int t;
     scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         int a, b, n;
         scanf("%d %d %d", &a, &b, &n);
-        for (int j = 0; j < n; j++) {
-            if (j % 2 == 0) {
-                a *= 2;
-            } else {
-                b *= 2;
-            }
-        }
-        if (a < b) {
-            printf("%d\n", b/a);
+        if (n % 2 == 0) {
+            printf("%d\n", dividir(a, b));
         } else {
-            printf("%d\n", a/b);
+            printf("%d\n", dividir(2*a, b));
         }
     }
     return 0;
